@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View student</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+<body>
+	<div th:replace="fragments/header"></div>
+	<div class="container">
+	<br/>
+		<h2>Lihat Data Mahasiswa</h2>
+	
+	<h6 th:text="'NPM = ' + ${student.npm}">Student NPM</h6>
+	<h6 th:text="'Name = ' + ${student.name}">Student Name</h6>
+	<h6 th:text="'GPA = ' + ${student.gpa}">Student GPA</h6>
+	<h6>Kuliah yang diambil</h6>
+	<ul th:each="course,iterationStatus: ${student.courses}">
+		<li th:text="${course.name} + '-' + ${course.credits} + ' sks'">
+			Nama kuliah-X SKS</li>
+	</ul>
+		
+	</div>
+	<div th:replace="fragments/footer"></div>
+</body>
+</html>
+
